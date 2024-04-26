@@ -19,10 +19,10 @@ const Navbar = () => {
     const navLinks = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/allTourists">All Tourists Spot</NavLink></li>
-        <li><NavLink to="/addTourists">Add Tourists Spot</NavLink></li>
-        <li><NavLink to="/myList">My List</NavLink></li>
-        <li><NavLink to="/login">Login</NavLink></li>
-        <li><NavLink to="/register">Register</NavLink></li>
+        {user && <li><NavLink to="/addTourists">Add Tourists Spot</NavLink></li>}
+        {user && <li><NavLink to="/myList">My List</NavLink></li>}
+        {!user && <li><NavLink to="/login">Login</NavLink></li>}
+        {!user && <li><NavLink to="/register">Register</NavLink></li>}
     </>
 
     return (

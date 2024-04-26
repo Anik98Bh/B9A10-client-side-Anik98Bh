@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../providers/AuthProvider";
 
 const AddTourists = () => {
+    const { user, } = useContext(AuthContext);
 
     const handleAddTourists=e=>{
         e.preventDefault();
@@ -113,13 +116,13 @@ const AddTourists = () => {
                             <label className="label">
                                 <span className="label-text font-semibold">User Name</span>
                             </label>
-                            <input type="text" name="userName" placeholder="Enter user name" className="input input-bordered w-full" />
+                            <input type="text" name="userName" defaultValue={user?.displayName} placeholder="Enter user name" className="input input-bordered w-full" />
                         </div>
                         <div className="w-1/2">
                             <label className="label">
                                 <span className="label-text font-semibold">User Email</span>
                             </label>
-                            <input type="email" name="userEmail" placeholder="Enter user email" className="input input-bordered w-full" />
+                            <input type="email" name="userEmail" defaultValue={user?.email} placeholder="Enter user email" className="input input-bordered w-full" readOnly />
                         </div>
                     </div>
                     <div className="mb-5">
