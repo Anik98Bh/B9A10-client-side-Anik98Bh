@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const TouristsCard = ({ tourist }) => {
-    const { _id, name, country, location, description, averageCost, seasonality, travelTime, totalVisitorsPerYear, userName, userEmail, image } = tourist;
+    const { _id, name, country, location, averageCost, seasonality, travelTime, image } = tourist;
 
     return (
         <div className="card bg-base-100 shadow-xl mb-3 hover:bg-violet-100 active:bg-violet-100 focus:outline-none focus:ring focus:ring-violet-300 animate__animated animate__zoomIn animate__delay-2s">
