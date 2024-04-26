@@ -1,13 +1,81 @@
+import { useContext } from "react";
+import { AuthContext } from "../../components/providers/AuthProvider";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+
 
 const Login = () => {
+    const { signIn, googleLogin, githubLogin } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
 
-    const handleLogin=e=>{
+
+    const handleLogin = (e) => {
         e.preventDefault()
         const form = new FormData(e.currentTarget);
         const email = form.get('email');
         const password = form.get('password');
+
+        signIn(email, password)
+            .then(result => {
+                console.log(result.user)
+
+                navigate(location?.state ? location.state : "/")
+                if(result.user){
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Login has been successfully",
+                        showConfirmButton: false,
+                        timer: 1500
+                      });
+                }
+
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
+
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then(result => {
+                console.log(result.user)
+                navigate(location?.state ? location.state : "/")
+                if(result.user){
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Login has been successfully",
+                        showConfirmButton: false,
+                        timer: 1500
+                      });
+                }
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
+
+    const handleGithubLogin = () => {
+        githubLogin()
+            .then(result => {
+                console.log(result.user)
+                navigate(location?.state ? location.state : "/")
+                if(result.user){
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Login has been successfully",
+                        showConfirmButton: false,
+                        timer: 1500
+                      });
+                }
+            })
+            .catch(error => {
+                console.error(error)
+            })
     }
 
     return (
@@ -34,8 +102,8 @@ const Login = () => {
                 <div className="mt-4">
                     <p className="mt-6 text-xl font-bold text-center">----------------- OR ---------------</p>
                     <div className="flex justify-evenly mt-4">
-                        <button  className="btn btn-secondary text-white"><FaGoogle className="text-xl"></FaGoogle> Continue with Google</button>
-                        <button  className="btn btn-primary text-white"><FaGithub className="text-2xl"></FaGithub> Continue with Github</button>
+                        <button onClick={handleGoogleLogin} className="btn btn-secondary text-white"><FaGoogle className="text-xl"></FaGoogle> Continue with Google</button>
+                        <button onClick={handleGithubLogin} className="btn btn-primary text-white"><FaGithub className="text-2xl"></FaGithub> Continue with Github</button>
                     </div>
                 </div>
             </form>
