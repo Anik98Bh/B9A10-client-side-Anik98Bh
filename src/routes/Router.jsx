@@ -5,6 +5,7 @@ import Login from "../pages/shared/Login";
 import Register from "../pages/shared/Register";
 import ErrorPage from "../pages/errorpage/ErrorPage";
 import AddTourists from "../components/addTourists/AddTourists";
+import AllTourists from "../components/allTourists/AllTourists";
 
 const router = createBrowserRouter([
     {
@@ -16,7 +17,10 @@ const router = createBrowserRouter([
           path: "/",
           element: <Home></Home>,
         },
-        
+        {
+          path: "/allTourists",
+          element: <AllTourists></AllTourists>,
+        },
         {
           path: "/addTourists",
           element: <AddTourists></AddTourists>,
