@@ -32,6 +32,12 @@ const Details = () => {
                         <p className="mt-6 px-5"><span className="font-acma mr-2">Total Visitors Per Year:</span> {totalVisitorsPerYear}</p>
                     </Slide>
 
+                    <Slide >
+                        <p>I enter first...</p>
+                        <p>...then comes my turn...</p>
+                        <p>...and finally you see me!</p>
+                    </Slide>
+
                 </div>
             </div>
         </div>

@@ -23,7 +23,7 @@ const router = createBrowserRouter([
         },
         {
           path: "/tourists/:id",
-          element: <Details></Details>,
+          element: <PrivateRoute><Details></Details></PrivateRoute>,
           loader: ({params})=>fetch(`http://localhost:5000/tourists/${params.id}`)
         },
         {
@@ -38,6 +38,7 @@ const router = createBrowserRouter([
         {
           path: "/myList",
           element: <PrivateRoute><MyList></MyList></PrivateRoute>,
+        //   loader: ({params})=>fetch(`http://localhost:5000/tourists/${params.userEmail}`)
         },
         {
           path: "/login",

@@ -2,6 +2,8 @@ import { useLoaderData } from "react-router-dom";
 import Banner from "../components/banner/Banner";
 import TouristsCard from "../components/touristsCard/TouristsCard";
 import { useState } from "react";
+import Info from "../components/info/Info";
+import AskQuestion from "../components/askQuestion/AskQuestion";
 
 const Home = () => {
     const tourists = useLoaderData();
@@ -20,6 +22,8 @@ const Home = () => {
                         tourist={tourist}></TouristsCard>)
                 }
             </div>
+            <Info></Info>
+            <AskQuestion></AskQuestion>
         </div>
     );
 };

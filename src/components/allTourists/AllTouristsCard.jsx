@@ -10,11 +10,11 @@ const AllTouristsCard = ({ tourist }) => {
             </figure>
             <div className="px-10 mt-3">
                 <h2 className=" text-center text-2xl font-acma ">{name}</h2>
-                <div className="flex gap-10 mt-5">
+                <div className="flex gap-4 mt-5">
                     <p><span className="font-acma">Average Cost:</span> {averageCost}</p>
                     <p><span className="font-acma">Seasonality:</span> {seasonality}</p>
                 </div>
-                <div className="flex gap-10 mt-3 mb-20">
+                <div className="flex gap-4 mt-3 mb-20">
                     <p><span className="font-acma">Travel Time:</span> {travelTime}</p>
                     <p><span className="font-acma">Total Visitors Per Year:</span> {totalVisitorsPerYear}</p>
                 </div>
