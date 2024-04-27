@@ -1,14 +1,14 @@
 import { useContext } from "react";
+import { Slide } from "react-awesome-reveal";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import { AuthContext } from "../providers/AuthProvider";
-import { Slide } from "react-awesome-reveal";
+import { AuthContext } from "../../components/providers/AuthProvider";
 
-const AddTourists = () => {
+const UpdatePage = () => {
     const { user, } = useContext(AuthContext);
 
-    const handleAddTourists = e => {
+    const handleUpdateTourists = e => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
@@ -19,15 +19,13 @@ const AddTourists = () => {
         const seasonality = form.seasonality.value;
         const travelTime = form.travelTime.value;
         const totalVisitorsPerYear = form.totalVisitorsPerYear.value;
-        const userName = form.userName.value;
-        const userEmail = form.userEmail.value;
         const image = form.image.value;
-        const newTourists = { name, country, location, description, averageCost, seasonality, travelTime, totalVisitorsPerYear, userName, userEmail, image };
+        const newTourists = { name, country, location, description, averageCost, seasonality, travelTime, totalVisitorsPerYear, image };
 
         console.log(newTourists);
 
         fetch('http://localhost:5000/tourists', {
-            method: "POST",
+            method: "PUT",
             headers: {
                 "Content-Type": "application/json",
             },
@@ -39,7 +37,7 @@ const AddTourists = () => {
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',
-                        text: 'Tourists added Successfully',
+                        text: 'Data Updated Successfully',
                         icon: 'success',
                         confirmButtonText: 'Cool'
                     })
@@ -53,10 +51,10 @@ const AddTourists = () => {
                 <FaArrowLeft></FaArrowLeft><span className="text-2xl font-acma">Back to home</span>
             </Link>
             <div className="px-20">
-                <h1 className="text-5xl font-acma text-center">Add Tourists</h1>
+                <h1 className="text-5xl font-acma text-center">Update Tourists</h1>
                 <p className="text-center mt-4">Tourism is a social, cultural and economic phenomenon which entails the movement of people to countries <br />or places outside their usual environment for personal or business/professional purposes.</p>
                 <Slide triggerOnce>
-                    <form onSubmit={handleAddTourists} className="mt-6">
+                    <form onSubmit={handleUpdateTourists} className="mt-6">
                         <div className="flex gap-9 mb-3">
                             <div className="w-1/2">
                                 <label className="label">
@@ -113,20 +111,6 @@ const AddTourists = () => {
                                 <input type="text" name="totalVisitorsPerYear" placeholder="Enter total visitors" className="input input-bordered w-full" />
                             </div>
                         </div>
-                        <div className="flex gap-9 mb-3">
-                            <div className="w-1/2">
-                                <label className="label">
-                                    <span className="label-text font-semibold">User Name</span>
-                                </label>
-                                <input type="text" name="userName" defaultValue={user?.displayName} placeholder="Enter user name" className="input input-bordered w-full" />
-                            </div>
-                            <div className="w-1/2">
-                                <label className="label">
-                                    <span className="label-text font-semibold">User Email</span>
-                                </label>
-                                <input type="email" name="userEmail" defaultValue={user?.email} placeholder="Enter user email" className="input input-bordered w-full" />
-                            </div>
-                        </div>
                         <div className="mb-5">
                             <div className="w-full">
                                 <label className="label">
@@ -136,7 +120,7 @@ const AddTourists = () => {
                             </div>
                         </div>
                         <button
-                            className="btn btn-block bg-[#9aecbc] text-[#331A15] font-acma ">Add</button>
+                            className="btn btn-block bg-[#9aecbc] text-[#331A15] font-acma ">Update</button>
                     </form>
                 </Slide>
             </div>
@@ -144,4 +128,4 @@ const AddTourists = () => {
     );
 };
 
-export default AddTourists;
+export default UpdatePage;

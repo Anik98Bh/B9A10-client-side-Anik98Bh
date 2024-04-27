@@ -42,7 +42,7 @@ const Navbar = () => {
     </>
 
     return (
-        <div className="navbar rounded fixed z-10 px-5 ">
+        <div className="navbar rounded fixed z-10 px-5 animate__animated animate__fadeInLeft">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
