@@ -4,6 +4,7 @@ import TouristsCard from "../components/touristsCard/TouristsCard";
 import { useState } from "react";
 import Info from "../components/info/Info";
 import AskQuestion from "../components/askQuestion/AskQuestion";
+import Countries from "../components/countries/Countries";
 
 const Home = () => {
     const tourists = useLoaderData();
@@ -21,6 +22,9 @@ const Home = () => {
                         key={tourist._id}
                         tourist={tourist}></TouristsCard>)
                 }
+            </div>
+            <div>
+                {/* <Countries></Countries> */}
             </div>
             <Info></Info>
             <AskQuestion></AskQuestion>

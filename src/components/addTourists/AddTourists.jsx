@@ -68,7 +68,15 @@ const AddTourists = () => {
                                 <label className="label">
                                     <span className="label-text font-semibold">Country</span>
                                 </label>
-                                <input type="text" name="country" placeholder="Enter country name" className="input input-bordered w-full" />
+                                <select name="country" className="select select-bordered w-full">
+                                    <option disabled selected>Select Country</option>
+                                    <option> Bangladesh</option>
+                                    <option> Thailand</option>
+                                    <option> Indonesia</option>
+                                    <option> Malaysia</option>
+                                    <option> Vietnam</option>
+                                    <option> Cambodia</option>
+                                </select>
                             </div>
                         </div>
                         <div className="flex gap-9 mb-3">

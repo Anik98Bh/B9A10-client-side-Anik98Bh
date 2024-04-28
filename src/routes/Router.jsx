@@ -10,6 +10,7 @@ import PrivateRoute from "./privateRoute/PrivateRoute";
 import MyList from "./myList/MyList";
 import Details from "../pages/viewDetails/Details";
 import UpdatePage from "../pages/updatePage/UpdatePage";
+import Countries from "../components/countries/Countries";
 
 const router = createBrowserRouter([
     {
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
         {
           path: "/",
           element: <Home></Home>,
-          loader: ()=>fetch('http://localhost:5000/tourists')
+          loader: ()=>fetch('http://localhost:5000/tourists'),
         },
         {
           path: "/tourists/:id",
@@ -36,14 +37,14 @@ const router = createBrowserRouter([
           path: "/addTourists",
           element: <PrivateRoute><AddTourists></AddTourists></PrivateRoute>,
         },
-        {
-          path: "/updateTourists",
-          element: <PrivateRoute><UpdatePage></UpdatePage></PrivateRoute>,
-        },
+        // {
+        //   path: "/updateTourists/:id",
+        //   element: <PrivateRoute><UpdatePage></UpdatePage></PrivateRoute>,
+        //   loader: ({params})=>fetch(`http://localhost:5000/tourists/${params.id}`)
+        // },
         {
           path: "/myList",
           element: <PrivateRoute><MyList></MyList></PrivateRoute>,
-        //   loader: ({params})=>fetch(`http://localhost:5000/tourists/${params.userEmail}`)
         },
         {
           path: "/login",

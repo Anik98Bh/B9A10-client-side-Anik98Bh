@@ -1,11 +1,22 @@
 import { useLoaderData } from "react-router-dom";
 import AllTouristsCard from "./AllTouristsCard";
 import { FaArrowDown19, FaArrowDown91 } from "react-icons/fa6";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import AllCountry from "./AllCountry";
 
 const AllTourists = () => {
     const tourists = useLoaderData();
     const [allTourists,setAllTourists]=useState([...tourists]);
+    // const [countries,setCountries]=useState([]);
+
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/tourists/countries')
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             console.log(data)
+    //             setCountries(data)
+    //         })
+    // }, [])
 
     const lowToHigh=()=>{
         const sorted=[...tourists].sort((a,b)=>a.averageCost-b.averageCost);
@@ -33,6 +44,13 @@ const AllTourists = () => {
                         key={tourist._id}
                         tourist={tourist}></AllTouristsCard>)
                 }
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7 mt-10">
+                {/* {
+                    countries.map(card => <AllCountry
+                        key={card._id}
+                        card={card}></AllCountry>)
+                } */}
             </div>
         </div>
     );

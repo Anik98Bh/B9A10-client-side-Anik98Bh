@@ -2,8 +2,13 @@ import { useLoaderData } from "react-router-dom";
 import { Slide } from "react-awesome-reveal";
 
 const Details = () => {
-    const tourist = useLoaderData();
-    const { name, country, location, description, averageCost, seasonality, travelTime, totalVisitorsPerYear, image } = tourist;
+    const tourists = useLoaderData();
+    // const { id } = useParams();
+    // const idInt = parseInt(id);
+    // const tourist = tourists.find(tourist => tourist.id === idInt);
+    console.log(tourists);
+    const { name, country, location, description, averageCost, seasonality, travelTime, totalVisitorsPerYear, image } = tourists;
+
     return (
         <div className="animate__animated animate__zoomIn pl-5 pr-2">
             <div className=" text-center mb-5">
