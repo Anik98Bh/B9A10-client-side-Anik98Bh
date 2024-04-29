@@ -1,7 +1,10 @@
+import { useState } from "react";
+import { Slide } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const ListCard = ({ tourist }) => {
+const ListCard = ({ tourist, setItem, item }) => {
+    // const [control,setControl]=useState(false);
     const { _id, name, country, location, description, averageCost, seasonality, travelTime, totalVisitorsPerYear, image } = tourist;
 
     const handleDelete = _id => {
@@ -16,7 +19,7 @@ const ListCard = ({ tourist }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/tourists/${_id}`, {
+                fetch(`https://b9a10-server-side-anik98-bh.vercel.app/tourists/${_id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())
@@ -28,8 +31,8 @@ const ListCard = ({ tourist }) => {
                                 text: "Your Tourist Spot has been deleted.",
                                 icon: "success"
                             });
-                            // const remaining = coffees.filter(cof => cof._id !== _id);
-                            // setCoffees(remaining);
+                            const remaining = item.filter(cof => cof._id !== _id);
+                            setItem(remaining);
                         }
                     })
             }
@@ -37,22 +40,24 @@ const ListCard = ({ tourist }) => {
     }
 
     return (
-        <div className="card card-side h-96 w-4/5 bg-base-100 shadow-xl mb-20 py-10 pr-5">
+        <div className="card md:card-side md:h-96 md:w-4/5 bg-base-100 shadow-xl mb-20 py-10 pr-5 sm:px-10">
             <figure className="p-10"> <img className="rounded-tl " src={image} alt="" /></figure>
-            <div className="  justify-between w-full">
-                <div>
-                    <h2 className="text-3xl font-acma">Country: {country}</h2>
-                    <h2 className="text-xl font-acma mt-2">Name: {name}</h2>
-                    <p className="mt-2">{description}</p>
-                    <p className="mt-2">
-                        <span className="font-acma mr-2">Seasonality:</span> {seasonality}
-                    </p>
-                    <p className="mt-2">
-                        <span className="font-acma mr-2">Average Cost:</span> {averageCost} $
-                    </p>
-                </div>
+            <div className="  justify-between lg:w-full">
+                <Slide triggerOnce>
+                    <div>
+                        <h2 className="text-3xl font-acma">Country: {country}</h2>
+                        <h2 className="text-xl font-acma mt-2">Name: {name}</h2>
+                        <p className="mt-2">{description}</p>
+                        <p className="mt-2">
+                            <span className="font-acma mr-2">Seasonality:</span> {seasonality}
+                        </p>
+                        <p className="mt-2">
+                            <span className="font-acma mr-2">Average Cost:</span> {averageCost} $
+                        </p>
+                    </div>
+                </Slide>
                 <div className="card-actions gap-20 mt-4">
-                    <Link to={`updateTourists/${_id}`}>
+                    <Link to={`/updateTourists/${_id}`}>
                         <button className="btn bg-[#28B463] text-white font-acma">Update</button>
                     </Link>
                     <button

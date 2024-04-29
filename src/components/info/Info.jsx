@@ -11,7 +11,7 @@ const Info = () => {
                     <p className="font-acma">For over 30 years, WTTC has conducted research on the economic impact of Travel & Tourism in 185 countries and issues such as overcrowding, taxation, policy-making, and many others to raise awareness of the importance of the Travel & Tourism sector as one of the world’s largest economic sectors.</p><br />
                     <p>As a non-profit membership-based organisation, our members and partners are the core of our organisation and include over 200 CEOs, Chairpersons, and Presidents of the world’s leading Travel & Tourism companies from all geographies and industries.  </p>
                 </div>
-                <button className="btn ml-80 bg-[#cf5dbc] w-1/2 mt-5 text-white hover:bg-red-400">Become a Member</button>
+                <button className="btn lg:ml-80 bg-[#cf5dbc] w-1/2 mt-5 text-white hover:bg-red-400">Become a Member</button>
             </div>
         </Slide>
     );

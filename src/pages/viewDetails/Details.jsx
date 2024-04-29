@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData,  } from "react-router-dom";
 import { Slide } from "react-awesome-reveal";
 
 const Details = () => {

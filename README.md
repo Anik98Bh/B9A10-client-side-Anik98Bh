@@ -14,8 +14,16 @@ Currently, two official plugins are available:
 
 ## Summery of this project
 
-<p align="center">Live Link : https://b9a9-real-estate-anik98bh.web.app/ <p/>
-  <h3 align="center"><a href="https://b9a9-real-estate-anik98bh.web.app/">AB Tourism Management</a></h3>
+<p align="center">Live Link : https://b9a10-client-side-anik98bh.web.app/ <p/>
+  <h3 align="center">Website: <a href="https://b9a10-client-side-anik98bh.web.app/">AB Tourism Management</a></h3>
+
+
+
+
+  * category's name-->  Southeast Asia
+
+
+
   
   - Five Bullet Point:--
 
@@ -27,4 +35,5 @@ Currently, two official plugins are available:
   * Create a 404 ERROR page, if user type or go wrong url then show custom ERROR.
 
   * ----Use npm package name----
-  * <a href="https://animate.style/">Animate.css</a>
+  * <a href="https://www.npmjs.com/package/react-awesome-reveal">React-Awesome-Reveal</a>
+  * <a href="https://react-tooltip.com/">React-Tooltip</a>

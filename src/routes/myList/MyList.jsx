@@ -7,7 +7,7 @@ const MyList = () => {
     const [item, setItem] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myList/${user?.email}`)
+        fetch(`https://b9a10-server-side-anik98-bh.vercel.app/myList/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -20,6 +20,8 @@ const MyList = () => {
             {
                 item.map(tourist => <ListCard
                     key={tourist._id}
+                    item={item}
+                    setItem={setItem}
                     tourist={tourist}></ListCard>)
             }
         </div>

@@ -10,7 +10,7 @@ import PrivateRoute from "./privateRoute/PrivateRoute";
 import MyList from "./myList/MyList";
 import Details from "../pages/viewDetails/Details";
 import UpdatePage from "../pages/updatePage/UpdatePage";
-import Countries from "../components/countries/Countries";
+import CountryData from "../components/singleCountries/CountryData";
 
 const router = createBrowserRouter([
     {
@@ -21,30 +21,35 @@ const router = createBrowserRouter([
         {
           path: "/",
           element: <Home></Home>,
-          loader: ()=>fetch('http://localhost:5000/tourists'),
+          loader: ()=>fetch('https://b9a10-server-side-anik98-bh.vercel.app/tourists'),
         },
         {
           path: "/tourists/:id",
           element: <PrivateRoute><Details></Details></PrivateRoute>,
-          loader: ({params})=>fetch(`http://localhost:5000/tourists/${params.id}`)
+          loader: ({params})=>fetch(`https://b9a10-server-side-anik98-bh.vercel.app/tourists/${params.id}`)
         },
         {
           path: "/allTourists",
           element: <AllTourists></AllTourists>,
-          loader: ()=>fetch('http://localhost:5000/tourists')
+          loader: ()=>fetch('https://b9a10-server-side-anik98-bh.vercel.app/tourists')
         },
         {
           path: "/addTourists",
           element: <PrivateRoute><AddTourists></AddTourists></PrivateRoute>,
         },
-        // {
-        //   path: "/updateTourists/:id",
-        //   element: <PrivateRoute><UpdatePage></UpdatePage></PrivateRoute>,
-        //   loader: ({params})=>fetch(`http://localhost:5000/tourists/${params.id}`)
-        // },
+        {
+          path: "/updateTourists/:id",
+          element: <PrivateRoute><UpdatePage></UpdatePage></PrivateRoute>,
+          loader: ({params})=>fetch(`https://b9a10-server-side-anik98-bh.vercel.app/tourists/${params.id}`)
+        },
         {
           path: "/myList",
           element: <PrivateRoute><MyList></MyList></PrivateRoute>,
+        },
+        {
+          path: "/allTourists/:country",
+          element: <CountryData></CountryData>,
+          loader: ({params})=>fetch(`https://b9a10-server-side-anik98-bh.vercel.app/allTourists/${params.country}`)
         },
         {
           path: "/login",

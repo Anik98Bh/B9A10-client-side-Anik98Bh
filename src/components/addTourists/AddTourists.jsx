@@ -26,7 +26,7 @@ const AddTourists = () => {
 
         console.log(newTourists);
 
-        fetch('http://localhost:5000/tourists', {
+        fetch('https://b9a10-server-side-anik98-bh.vercel.app/tourists', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

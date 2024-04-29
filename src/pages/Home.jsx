@@ -24,7 +24,7 @@ const Home = () => {
                 }
             </div>
             <div>
-                {/* <Countries></Countries> */}
+                <Countries></Countries>
             </div>
             <Info></Info>
             <AskQuestion></AskQuestion>
