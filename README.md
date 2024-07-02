@@ -37,3 +37,17 @@ Currently, two official plugins are available:
   * ----Use npm package name----
   * <a href="https://www.npmjs.com/package/react-awesome-reveal">React-Awesome-Reveal</a>
   * <a href="https://react-tooltip.com/">React-Tooltip</a>
+
+  <hr />
+
+  ### Technology used:
+* ##### Frontend:
+ 1. React, 2. TailwindCSS, 3. DaisyUi 4. JavaScript, 5. Firebase, 6.HTML.
+* ##### Backend:
+ 1. Node.js, 2.Express.js.
+* ##### Database:
+ 1. MongoDB
+
+ ## Key Features:--
+* User can add his/her own Tourists Sport Place.
+* Only User can Updated and Deleted his/her own Tourists Sport.
